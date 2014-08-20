@@ -3,13 +3,15 @@
 use strict;
 use warnings;
 use Net::DNS::Nameserver;
+use Sys::Syslog;
  
 sub reply_handler {
     my ($qname, $qclass, $qtype, $peerhost,$query,$conn) = @_;
     my ($rcode, @ans, @auth, @add);
  
 # Comment the following line to prevent the one-line trace from displaying for each lookup
-    print "Received query from $peerhost to ". $conn->{sockhost}. "\n";
+#    print "Received query from $peerhost to ". $conn->{sockhost}. "\n";
+    syslog("info","Received query from $peerhost");
 # Uncomment the following line to show the actual query
 #    $query->print;
 # Set the ttl to something relatively short for what we're doing
@@ -23,6 +25,9 @@ sub reply_handler {
 }
  
 $|=1;	# Do not buffer output
+
+openlog("eyglb","pid","local3");
+syslog("info", "eyglb ns starting");
 
 # Set the LocalAddr to whatever your local network interface is.
 my $ns = new Net::DNS::Nameserver(
