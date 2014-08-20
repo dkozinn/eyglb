@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+
+# Hacked from the sample code at http://www.net-dns.org/docs/Net/DNS/Nameserver.html
+# Now writes tracing output to syslog using local3.info
  
 use strict;
 use warnings;
@@ -11,10 +14,12 @@ sub reply_handler {
  
 # Comment the following line to prevent the one-line trace from displaying for each lookup
 #    print "Received query from $peerhost to ". $conn->{sockhost}. "\n";
+
     syslog("info","Received query from $peerhost");
+
 # Uncomment the following line to show the actual query
 #    $query->print;
-# Set the ttl to something relatively short for what we're doing
+
     my ($ttl, $rdata) = (60, $peerhost);
     my $rr = new Net::DNS::RR("$qname $ttl $qclass A $rdata");
     push @ans, $rr;
