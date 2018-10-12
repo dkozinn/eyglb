@@ -1,12 +1,12 @@
-# EYGLB
+#EYGLB
 
-## Synopsis
+##Synopsis
 This is a perl program that acts similar to a DNS server except that no matter what you ask it for, it always returns the IP address of the client that asked for the information as an **A** record. This is a mildly hacked version of the example program shown at  http://www.net-dns.org/docs/Net/DNS/Nameserver.html. There is probably a better way to do this, but this was very quick to put together.
 
-## Requirements
+##Requirements
 Needs the `Net::DNS::Nameserver` package and `Sys::Syslog` if you're going to use syslog for output. (If not, see details under **Use** below).
 
-## Preparation
+##Preparation
 The most important thing is to edit the block of code just before the end:
 
 ```perl
