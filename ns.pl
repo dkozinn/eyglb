@@ -31,7 +31,7 @@ sub reply_handler {
  
 $|=1;	# Do not buffer output
 
-openlog("eyglb","pid","local3");
+openlog("eyglb","pid","local0");
 syslog("info", "eyglb ns starting");
 
 # Set the LocalAddr to whatever your local network interface is.
