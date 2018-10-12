@@ -22,5 +22,5 @@ Change **LocalAddr** to whatever the IP address of your server is. (You might be
 
 One of the hacks I made was to send some very basic output to syslog (which saves me the trouble of even having to put in a timestamp). If you are using syslog you can modify the `opensyslog()` statement as necessary. The default is set to use **eyglb** as the process name, log the pid, and use `local0` as the facility code. See http://perldoc.perl.org/Sys/Syslog.html for more details about this. If you are not using syslog, you'll want to comment out or remove the `use Sys::Syslog;` line as well as the `openlog()` and `syslog()` statements
 
-#Use
+# Use
 For test purposes, you can just invoke at the command line. You may want to uncomment the couple of lines that print useful information to **STDOUT** with the **print** statements. To run as a server, the easiest way is just to invoke with `nohup` and throw it in the background. It should be pretty obvious that this isn't intended to be terribly robust, and if it crashes for whatever reason it doesn't try to recover or even notify anyone.
