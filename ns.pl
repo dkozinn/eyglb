@@ -12,7 +12,7 @@ sub reply_handler {
     my ($qname, $qclass, $qtype, $peerhost,$query,$conn) = @_;
     my ($rcode, @ans, @auth, @add);
  
-# Comment the following line to prevent the one-line trace from displaying for each lookup
+# Uncomment the following line to prevent the one-line trace from displaying for each lookup
 #    print "Received query from $peerhost to ". $conn->{sockhost}. "\n";
 
     syslog("info","Received query from $peerhost");
