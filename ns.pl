@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Hacked from the sample code at http://www.net-dns.org/docs/Net/DNS/Nameserver.html
-# Now writes tracing output to syslog using local3.info
+# Now writes tracing output to syslog using local0.info
  
 use strict;
 use warnings;
