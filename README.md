@@ -24,3 +24,8 @@ One of the hacks I made was to send some very basic output to syslog (which save
 
 # Use
 This will need to run as root since it opens TCP & UDP 53.  For test purposes, you can just invoke at the command line. You may want to uncomment the couple of lines that print useful information to **STDOUT** with the **print** statements. To run as a server, the easiest way is just to invoke with `nohup` and throw it in the background. It should be pretty obvious that this isn't intended to be terribly robust, and if it crashes for whatever reason it doesn't try to recover or even notify anyone.
+
+If you wish to run this a service on a system that supports systemd, copy **ns.service** to /lib/systemd/system and start is using 
+```
+sudo systemctl start ns.service
+```
