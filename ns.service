@@ -1,0 +1,10 @@
+[Unit]
+Description=Service to return IP of host looking it up
+After = network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ns.pl
+
+[Install]
+WantedBy=multi-user.target
